@@ -6,7 +6,8 @@ import Screen from "./Screen";
 import { defineNumber } from "../../actions.js";
 
 const Calculator = function(props) {
-  const handleClick = () => {
+  const handleClick = e => {
+    console.log(e.target.value);
     props.dispatch(defineNumber(5));
     // console.log("hi");
   };
@@ -43,24 +44,65 @@ const Calculator = function(props) {
             <Button
               value="7"
               type="number"
-              onClick={() => console.log("hi")}
+              onClick={e => handleClick(e)}
             ></Button>
-            <Button value="8" type="number" onClick={handleClick}></Button>
-            <Button value="9" type="number"></Button>
+            <Button
+              value="8"
+              type="number"
+              onClick={e => handleClick(e)}
+            ></Button>
+            <Button
+              value="9"
+              type="number"
+              onClick={e => handleClick(e)}
+            ></Button>
           </div>
           <div className="container" style={{ flex: 1 }}>
-            <Button value="4" type="number"></Button>
-            <Button value="5" type="number"></Button>
-            <Button value="6" type="number"></Button>
+            <Button
+              value="4"
+              type="number"
+              onClick={e => handleClick(e)}
+            ></Button>
+            <Button
+              value="5"
+              type="number"
+              onClick={e => handleClick(e)}
+            ></Button>
+            <Button
+              value="6"
+              type="number"
+              onClick={e => handleClick(e)}
+            ></Button>
           </div>
           <div className="container" style={{ flex: 1 }}>
-            <Button value="1" type="number"></Button>
-            <Button value="2" type="number"></Button>
-            <Button value="3" type="number"></Button>
+            <Button
+              value="1"
+              type="number"
+              onClick={e => handleClick(e)}
+            ></Button>
+            <Button
+              value="2"
+              type="number"
+              onClick={e => handleClick(e)}
+            ></Button>
+            <Button
+              value="3"
+              type="number"
+              onClick={e => handleClick(e)}
+            ></Button>
           </div>
           <div className="container" style={{ flex: 1 }}>
-            <Button value="0" size="large" type="number"></Button>
-            <Button value="." type="number"></Button>
+            <Button
+              value="0"
+              size="large"
+              type="number"
+              onClick={e => handleClick(e)}
+            ></Button>
+            <Button
+              value="."
+              type="number"
+              onClick={e => handleClick(e)}
+            ></Button>
           </div>
         </div>
         <div
