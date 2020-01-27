@@ -1,6 +1,5 @@
 import React from "react";
-// import { Provider } from "react-redux";
-// import { connect } from "react-redux";
+import { Provider } from "react-redux";
 
 import Calculator from "./Components/Calculator/Calculator.js";
 import store from "./store";
@@ -29,17 +28,11 @@ class App extends React.Component {
 
   render() {
     return (
-      // <Provider>
-      <Calculator store={store}></Calculator>
-      // {/* </Provider> */}
+      <Provider store={store}>
+        <Calculator></Calculator>
+      </Provider>
     );
   }
 }
 
 export default App;
-
-const mapStateToProps = function(state) {
-  return {
-    number: state.number
-  };
-};

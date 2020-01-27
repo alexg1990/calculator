@@ -1,9 +1,15 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import Button from "./Button";
 import Screen from "./Screen";
+import { defineNumber } from "../../actions.js";
 
-let Calculator = function(props) {
+const Calculator = function(props) {
+  const handleClick = () => {
+    props.dispatch(defineNumber(5));
+    // console.log("hi");
+  };
   return (
     <div
       className="container"
@@ -34,8 +40,12 @@ let Calculator = function(props) {
             <Button value="/" type="operation"></Button>
           </div>
           <div className="container" style={{ flex: 1 }}>
-            <Button value="7" type="number"></Button>
-            <Button value="8" type="number"></Button>
+            <Button
+              value="7"
+              type="number"
+              onClick={() => console.log("hi")}
+            ></Button>
+            <Button value="8" type="number" onClick={handleClick}></Button>
             <Button value="9" type="number"></Button>
           </div>
           <div className="container" style={{ flex: 1 }}>
@@ -70,10 +80,10 @@ let Calculator = function(props) {
   );
 };
 
-const mapStateToProps = function(state) {
+const mapStateToProps = state => {
   return {
     number: state.number
   };
 };
 
-export default Calculator;
+export default connect(mapStateToProps)(Calculator);

@@ -18,6 +18,7 @@ let Button = function(props) {
             ? "rgb(0, 68, 102)"
             : "rgb(172, 57, 57)"
       }}
+      onClick={props.onClick}
       value={props.value}
     >
       {props.value}
