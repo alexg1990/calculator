@@ -1,6 +1,13 @@
 import React from "react";
 
+import { connect } from "react-redux";
+import { defineNumber } from "../../actions.js";
+
 let Button = function(props) {
+  const handleClick = e => {
+    props.dispatch(defineNumber(e.target.getAttribute("value")));
+    // console.log("hi");
+  };
   return (
     <div
       style={{
@@ -18,7 +25,7 @@ let Button = function(props) {
             ? "rgb(0, 68, 102)"
             : "rgb(172, 57, 57)"
       }}
-      onClick={props.onClick}
+      onClick={handleClick}
       value={props.value}
     >
       {props.value}
@@ -26,4 +33,10 @@ let Button = function(props) {
   );
 };
 
-export default Button;
+const mapStateToProps = state => {
+  return {
+    number: state.number
+  };
+};
+
+export default connect(mapStateToProps)(Button);
