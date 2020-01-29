@@ -17,7 +17,7 @@ export function setNumber(numberType, addedNumber) {
     return {
       type: SET_SECONDNUMBER,
       addedNumber
-    }
+    };
   }
 }
 
@@ -25,5 +25,17 @@ export function setOperator(operator) {
   return {
     type: SET_OPERATOR,
     operator
-  }
+  };
+}
+
+export function clearNumbers() {
+  return {
+    type: CLEAR
+  };
+}
+
+export function calcResult() {
+  return {
+    type: CALC
+  };
 }

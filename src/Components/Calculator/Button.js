@@ -1,11 +1,36 @@
 import React from "react";
 
 import { connect } from "react-redux";
-import { setNumber } from "../../actions.js";
+import {
+  calcResult,
+  clearNumbers,
+  setNumber,
+  setOperator
+} from "../../actions.js";
 
 let Button = function(props) {
   const handleClick = e => {
-    props.dispatch(setNumber(0, e.target.getAttribute("value")));
+    // props.dispatch(setNumber(0, e.target.getAttribute("value")));
+    switch (props.type) {
+      case "number":
+        if (props.operator === null) {
+          props.dispatch(setNumber(0, e.target.getAttribute("value")));
+        } else {
+          props.dispatch(setNumber(1, e.target.getAttribute("value")));
+        }
+        break;
+      case "operation":
+        props.dispatch(setOperator(e.target.getAttribute("value")));
+        break;
+      case "clear":
+        props.dispatch(clearNumbers());
+        break;
+      case "result":
+        props.dispatch(calcResult());
+        break;
+      default:
+        props.dispatch(clearNumbers());
+    }
   };
   return (
     <div

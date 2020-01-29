@@ -5,6 +5,18 @@ import Button from "./Button";
 import Screen from "./Screen";
 
 const Calculator = function(props) {
+  function setDisplayValue(displayValue) {
+    switch (displayValue) {
+      case "firstNumber":
+        return props.firstNumber;
+      case "secondNumber":
+        return props.secondNumber;
+      case "operator":
+        return props.operator;
+      default:
+        return props.firstNumber;
+    }
+  }
   return (
     <div
       className="container"
@@ -15,7 +27,7 @@ const Calculator = function(props) {
         flexDirection: "column"
       }}
     >
-      <Screen displayValue={props.firstNumber} />
+      <Screen displayValue={setDisplayValue(props.display)} />
       <div
         style={{
           display: "flex",

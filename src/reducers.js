@@ -8,36 +8,40 @@ import {
 
 const initialState = {
   display: "firstNumber",
-  firstNumber: "",
-  secondNumber: "",
-  operator: ""
+  firstNumber: 0,
+  secondNumber: 0,
+  operator: null
 };
 
 function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_FIRSTNUMBER:
-      return {
-        firstNumber: state.firstNumber + action.addedNumber
-      };
+      return Object.assign({}, state, {
+        firstNumber: state.firstNumber * 10 + parseInt(action.addedNumber)
+      });
     case SET_SECONDNUMBER:
-      return {
-        secondNumber: state.secondNumber + action.addedNumber,
-          display: "secondNumber"
-      };
+      return Object.assign({}, state, {
+        secondNumber: state.secondNumber * 10 + parseInt(action.addedNumber),
+        display: "secondNumber"
+      });
     case SET_OPERATOR:
-      return {
+      return Object.assign({}, state, {
         operator: action.operator,
-          display: "operator"
-      };
+        display: "operator"
+      });
     case CALC:
-      return {
-        firstNumber: calcResult(state.firstNumber, state.secondNumber, state.operator),
-          display: "firstNumber"
-      };
+      return Object.assign({}, state, {
+        display: "firstNumber",
+        firstNumber: calcResult(
+          state.firstNumber,
+          state.secondNumber,
+          state.operator
+        ),
+        secondNumber: 0,
+        operator: null
+      });
     case CLEAR:
-      return {
-        initialState
-      };
+      return initialState;
     default:
       return state;
   }
@@ -46,13 +50,15 @@ function reducer(state = initialState, action) {
 function calcResult(firstNumber, secondNumber, operator) {
   switch (operator) {
     case "+":
-      return parseInt(firstNumber) + parseInt(secondNumber);
+      return firstNumber + secondNumber;
     case "-":
-      return parseInt(firstNumber) - parseInt(secondNumber);
+      return firstNumber - secondNumber;
     case "*":
-      return parseInt(firstNumber) * parseInt(secondNumber);
+      return firstNumber * secondNumber;
     case "/":
-      return parseInt(firstNumber) / parseInt(secondNumber);
+      return firstNumber / secondNumber;
+    default:
+      return firstNumber;
   }
 }
 
