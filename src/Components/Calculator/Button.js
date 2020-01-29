@@ -1,12 +1,11 @@
 import React from "react";
 
 import { connect } from "react-redux";
-import { defineNumber } from "../../actions.js";
+import { setNumber } from "../../actions.js";
 
 let Button = function(props) {
   const handleClick = e => {
-    props.dispatch(defineNumber(e.target.getAttribute("value")));
-    // console.log("hi");
+    props.dispatch(setNumber(0, e.target.getAttribute("value")));
   };
   return (
     <div
@@ -35,7 +34,10 @@ let Button = function(props) {
 
 const mapStateToProps = state => {
   return {
-    number: state.number
+    display: state.display,
+    firstNumber: state.firstNumber,
+    secondNumber: state.secondNumber,
+    operator: state.operator
   };
 };
 

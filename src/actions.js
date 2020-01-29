@@ -1,11 +1,29 @@
 // Action types
-export const DEFINE_NUMBER = "DEFINE_NUMBER";
+export const SET_FIRSTNUMBER = "SET_FIRSTNUMBER";
+export const SET_SECONDNUMBER = "SET_SECONDNUMBER";
+export const SET_OPERATOR = "SET_OPERATOR";
+export const CALC = "CALC";
+export const DELETE = "DELETE";
 
 // Action creators
 
-export function defineNumber(addedNumber) {
+export function setNumber(numberType, addedNumber) {
+  if (numberType === 0) {
+    return {
+      type: SET_FIRSTNUMBER,
+      addedNumber
+    };
+  } else if (numberType === 1) {
+    return {
+      type: SET_SECONDNUMBER,
+      addedNumber
+    }
+  }
+}
+
+export function setOperator(operator) {
   return {
-    type: DEFINE_NUMBER,
-    addedNumber
-  };
+    type: SET_OPERATOR,
+    operator
+  }
 }

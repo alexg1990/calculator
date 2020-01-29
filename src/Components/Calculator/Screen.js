@@ -14,7 +14,7 @@ let Screen = function(props) {
         fontSize: "40px"
       }}
     >
-      {props.number}
+      {props.displayValue}
     </div>
   );
 };

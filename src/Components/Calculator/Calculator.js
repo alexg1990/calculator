@@ -15,7 +15,7 @@ const Calculator = function(props) {
         flexDirection: "column"
       }}
     >
-      <Screen number={props.number} />
+      <Screen displayValue={props.firstNumber} />
       <div
         style={{
           display: "flex",
@@ -73,7 +73,10 @@ const Calculator = function(props) {
 
 const mapStateToProps = state => {
   return {
-    number: state.number
+    display: state.display,
+    firstNumber: state.firstNumber,
+    secondNumber: state.secondNumber,
+    operator: state.operator
   };
 };
 
