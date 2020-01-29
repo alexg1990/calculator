@@ -31,7 +31,7 @@ const Calculator = function(props) {
           }}
         >
           <div className="container" style={{ flex: 1 }}>
-            <Button value="AC" size="large"></Button>
+            <Button value="AC" size="large" type="clear"></Button>
             <Button value="/" type="operation"></Button>
           </div>
           <div className="container" style={{ flex: 1 }}>

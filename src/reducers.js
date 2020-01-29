@@ -3,7 +3,7 @@ import {
   SET_SECONDNUMBER,
   SET_OPERATOR,
   CALC,
-  DELETE
+  CLEAR
 } from "./actions.js";
 
 const initialState = {
@@ -34,7 +34,7 @@ function reducer(state = initialState, action) {
         firstNumber: calcResult(state.firstNumber, state.secondNumber, state.operator),
           display: "firstNumber"
       };
-    case DELETE:
+    case CLEAR:
       return {
         initialState
       };

@@ -3,7 +3,7 @@ export const SET_FIRSTNUMBER = "SET_FIRSTNUMBER";
 export const SET_SECONDNUMBER = "SET_SECONDNUMBER";
 export const SET_OPERATOR = "SET_OPERATOR";
 export const CALC = "CALC";
-export const DELETE = "DELETE";
+export const CLEAR = "CLEAR";
 
 // Action creators
 
