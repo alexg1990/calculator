@@ -21,8 +21,8 @@ const Calculator = function(props) {
     <div
       className="container"
       style={{
-        height: "600px",
-        width: "500px",
+        minHeight: "100vh",
+        maxWidth: "500px",
         margin: "auto",
         flexDirection: "column"
       }}
@@ -63,7 +63,6 @@ const Calculator = function(props) {
           </div>
           <div className="container" style={{ flex: 1 }}>
             <Button value="0" size="large" type="number"></Button>
-            <Button value="." type="number"></Button>
           </div>
         </div>
         <div

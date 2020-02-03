@@ -6,7 +6,6 @@ export const CALC = "CALC";
 export const CLEAR = "CLEAR";
 
 // Action creators
-
 export function setNumber(numberType, addedNumber) {
   if (numberType === 0) {
     return {

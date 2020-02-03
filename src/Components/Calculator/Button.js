@@ -1,6 +1,6 @@
 import React from "react";
-
 import { connect } from "react-redux";
+
 import {
   calcResult,
   clearNumbers,
@@ -10,7 +10,6 @@ import {
 
 let Button = function(props) {
   const handleClick = e => {
-    // props.dispatch(setNumber(0, e.target.getAttribute("value")));
     switch (props.type) {
       case "number":
         if (props.operator === null) {
